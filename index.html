@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,17 +174,17 @@
             <img src="photo1.jpg.jpeg" alt="Pic 1">
         </div>
         <h1>I am really sorry... 🥺</h1>
-        <p>কথা দিয়ে না রাখার জন্য আমি আন্তরিকভাবে দুঃখিত। তুমি কি আমাকে ক্ষমা করে দেবে?</p>
+        <p>I am truly sorry for breaking my promise. Will you please forgive me?</p>
         <div class="btn-group">
-            <button class="btn-yes" onclick="nextScreen(2)">হ্যাঁ, করব ❤️</button>
-            <button class="btn-no" id="noBtn" onmouseover="moveNoBtn()" onclick="moveNoBtn()">না 😤</button>
+            <button class="btn-yes" onclick="nextScreen(2)">Yes, I do ❤️</button>
+            <button class="btn-no" id="noBtn" onmouseover="moveNoBtn()" onclick="moveNoBtn()">No 😤</button>
         </div>
     </div>
 
     <!-- Screen 2 -->
     <div class="screen" id="screen2">
-        <h1>তোমার জন্য একটা চিঠি আছে 💌</h1>
-        <p>খামটিতে ক্লিক করে খুলে দেখো...</p>
+        <h1>I have a letter for you 💌</h1>
+        <p>Tap the envelope to open it...</p>
         <div class="envelope-box" onclick="nextScreen(3)">
             <span>✉️</span>
         </div>
@@ -195,9 +196,9 @@
             <img src="photo2.jpg.jpeg" alt="Pic 2">
         </div>
         <div class="letter-content">
-            <p>আমি জানি আমার ভুলে তুমি অনেক কষ্ট পেয়েছ। কিন্তু বিশ্বাস করো, তোমাকে কষ্ট দেওয়া আমার উদ্দেশ্য ছিল না। তুমি আমার কাছে অনেক বিশেষ একজন মানুুষ! ✨</p>
+            <p>I know I hurt you with my mistake, and I feel awful about it. But trust me, hurting you was never my intention. You mean the world to me! ✨</p>
         </div>
-        <button class="btn-yes" onclick="nextScreen(4)">সামনে যাও ➡️</button>
+        <button class="btn-yes" onclick="nextScreen(4)">Next ➡️</button>
     </div>
 
     <!-- Screen 4 (Warning Dialog) -->
@@ -206,9 +207,9 @@
             <img src="photo2.jpg.jpeg" alt="Pic 2">
         </div>
         <h1>Are you sure? 🥺</h1>
-        <p>তুমি কি সত্যিই আমাকে মাফ করে দিলে?</p>
+        <p>Have you really forgiven me completely?</p>
         <div class="btn-group">
-            <button class="btn-yes" onclick="handleSureYes()">হ্যাঁ, শতভাগ নিশ্চিত!</button>
+            <button class="btn-yes" onclick="handleSureYes()">Yes, 100% sure!</button>
         </div>
     </div>
 
@@ -218,7 +219,7 @@
             <img src="photo3.jpg.jpeg" alt="Pic 3">
         </div>
         <h1>Yay! Thank You So Much! 🎉❤️</h1>
-        <p>আই প্রমিস, এমন ভুল আর কখনো হবে না! Love you loads! 🥰</p>
+        <p>I promise I will never make this mistake again! Love you loads! 🥰</p>
     </div>
 
     <script>
@@ -260,10 +261,10 @@
 
             if (sureClickCount === 1) {
                 screen4Title.innerText = "Really Sure? 🤔";
-                screen4Text.innerText = "একদম সত্যি তো? কোনো রাগ জমে নেই তো?";
+                screen4Text.innerText = "Are you absolutely certain? No anger left?";
             } else if (sureClickCount === 2) {
                 screen4Title.innerText = "Last Chance! 😜";
-                screen4Text.innerText = "আর কখনো আমার ওপর রাগ করবে না তো?";
+                screen4Text.innerText = "You won't stay mad at me ever again, right?";
             } else {
                 nextScreen(5);
             }
