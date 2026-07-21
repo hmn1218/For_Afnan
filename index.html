@@ -166,7 +166,7 @@
 <body>
 
     <!-- Background Music -->
-    <audio id="bgMusic" loop>
+    <audio id="bgMusic">
         <source src="song.mp3" type="audio/mp3">
     </audio>
 
@@ -227,15 +227,29 @@
     </div>
 
     <script>
-        // Background Music Autoplay on first user interaction
+        // ------------------ MUSIC TIME CONTROL ------------------
+        const startTime = 70; // ⏱️ ১ মিনিট ১০ সেকেন্ড = ৭০ সেকেন্ড
+        const endTime = 91;   // ⏱️ ১ মিনিট ৩১ সেকেন্ড = ৯১ সেকেন্ড
+
         let musicStarted = false;
+        const music = document.getElementById('bgMusic');
+
         document.addEventListener('click', function() {
             if (!musicStarted) {
-                const music = document.getElementById('bgMusic');
+                music.currentTime = startTime; // ১:১০ থেকে প্লে শুরু হবে
                 music.play().catch(e => console.log("Audio play deferred"));
                 musicStarted = true;
             }
         });
+
+        // ১:৩১ এ পৌঁছালে আবার ১:১০ এ ফিরে যাবে (Loop)
+        music.addEventListener('timeupdate', function() {
+            if (this.currentTime >= endTime) {
+                this.currentTime = startTime;
+                this.play();
+            }
+        });
+        // --------------------------------------------------------
 
         // Floating background hearts
         const bgHearts = id('bgHearts');
