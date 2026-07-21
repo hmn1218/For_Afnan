@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Afnan ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffe6e9;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 450px;
+            z-index: 10;
+        }
+
+        .screen.active {
+            display: flex;
+        }
+
+        /* Heart Background Animation */
+        .bg-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff4b6e;
+            opacity: 0.3;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        /* Screen Elements */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .cat-img-wrap {
+            width: 180px;
+            height: 180px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .cat-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(234, 76, 137, 0.25);
+            border: 3px solid #fff;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            min-height: 60px;
+        }
+
+        button {
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn-yes {
+            background-color: #ff4b6e;
+            color: white;
+            z-index: 20;
+        }
+
+        .btn-yes:hover {
+            background-color: #e03a5b;
+            transform: scale(1.05);
+        }
+
+        .btn-no {
+            background-color: #ffffff;
+            color: #ff4b6e;
+            border: 2px solid #ff4b6e;
+            z-index: 20;
+        }
+
+        /* Envelope Screen */
+        .envelope-box {
+            width: 150px;
+            height: 100px;
+            background-color: #ff4b6e;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 75, 110, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .envelope-box:hover {
+            transform: scale(1.1);
+        }
+
+        .envelope-box span {
+            font-size: 3rem;
+        }
+
+        .letter-content {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-hearts" id="bgHearts"></div>
+
+    <!-- Screen 1 -->
+    <div class="screen active" id="screen1">
+        <div class="cat-img-wrap">
+            <img src="photo1.jpg.jpeg" alt="Pic 1">
+        </div>
+        <h1>I am really sorry... 🥺</h1>
+        <p>কথা দিয়ে না রাখার জন্য আমি আন্তরিকভাবে দুঃখিত। তুমি কি আমাকে ক্ষমা করে দেবে?</p>
+        <div class="btn-group">
+            <button class="btn-yes" onclick="nextScreen(2)">হ্যাঁ, করব ❤️</button>
+            <button class="btn-no" id="noBtn" onmouseover="moveNoBtn()" onclick="moveNoBtn()">না 😤</button>
+        </div>
+    </div>
+
+    <!-- Screen 2 -->
+    <div class="screen" id="screen2">
+        <h1>তোমার জন্য একটা চিঠি আছে 💌</h1>
+        <p>খামটিতে ক্লিক করে খুলে দেখো...</p>
+        <div class="envelope-box" onclick="nextScreen(3)">
+            <span>✉️</span>
+        </div>
+    </div>
+
+    <!-- Screen 3 -->
+    <div class="screen" id="screen3">
+        <div class="cat-img-wrap">
+            <img src="photo2.jpg.jpeg" alt="Pic 2">
+        </div>
+        <div class="letter-content">
+            <p>আমি জানি আমার ভুলে তুমি অনেক কষ্ট পেয়েছ। কিন্তু বিশ্বাস করো, তোমাকে কষ্ট দেওয়া আমার উদ্দেশ্য ছিল না। তুমি আমার কাছে অনেক বিশেষ একজন মানুুষ! ✨</p>
+        </div>
+        <button class="btn-yes" onclick="nextScreen(4)">সামনে যাও ➡️</button>
+    </div>
+
+    <!-- Screen 4 (Warning Dialog) -->
+    <div class="screen" id="screen4">
+        <div class="cat-img-wrap">
+            <img src="photo2.jpg.jpeg" alt="Pic 2">
+        </div>
+        <h1>Are you sure? 🥺</h1>
+        <p>তুমি কি সত্যিই আমাকে মাফ করে দিলে?</p>
+        <div class="btn-group">
+            <button class="btn-yes" onclick="handleSureYes()">হ্যাঁ, শতভাগ নিশ্চিত!</button>
+        </div>
+    </div>
+
+    <!-- Screen 5 (Final Screen) -->
+    <div class="screen" id="screen5">
+        <div class="cat-img-wrap">
+            <img src="photo3.jpg.jpeg" alt="Pic 3">
+        </div>
+        <h1>Yay! Thank You So Much! 🎉❤️</h1>
+        <p>আই প্রমিস, এমন ভুল আর কখনো হবে না! Love you loads! 🥰</p>
+    </div>
+
+    <script>
+        // Floating background hearts
+        const bgHearts = id('bgHearts');
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 10) + 'px';
+            bgHearts.appendChild(heart);
+        }
+
+        function id(name) { return document.getElementById(name); }
+
+        function nextScreen(screenNum) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            id('screen' + screenNum).classList.add('active');
+        }
+
+        // Runaway 'No' button logic
+        function moveNoBtn() {
+            const btn = id('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth - 40);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight - 40);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        // Sequential confirmation dialog logic
+        let sureClickCount = 0;
+        function handleSureYes() {
+            sureClickCount++;
+            const screen4Title = document.querySelector('#screen4 h1');
+            const screen4Text = document.querySelector('#screen4 p');
+
+            if (sureClickCount === 1) {
+                screen4Title.innerText = "Really Sure? 🤔";
+                screen4Text.innerText = "একদম সত্যি তো? কোনো রাগ জমে নেই তো?";
+            } else if (sureClickCount === 2) {
+                screen4Title.innerText = "Last Chance! 😜";
+                screen4Text.innerText = "আর কখনো আমার ওপর রাগ করবে না তো?";
+            } else {
+                nextScreen(5);
+            }
+        }
+    </script>
+</body>
+</html>
