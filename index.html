@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,6 +165,11 @@
 </head>
 <body>
 
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mp3">
+    </audio>
+
     <div class="bg-hearts" id="bgHearts"></div>
 
     <!-- Screen 1 -->
@@ -223,6 +227,16 @@
     </div>
 
     <script>
+        // Background Music Autoplay on first user interaction
+        let musicStarted = false;
+        document.addEventListener('click', function() {
+            if (!musicStarted) {
+                const music = document.getElementById('bgMusic');
+                music.play().catch(e => console.log("Audio play deferred"));
+                musicStarted = true;
+            }
+        });
+
         // Floating background hearts
         const bgHearts = id('bgHearts');
         for (let i = 0; i < 20; i++) {
