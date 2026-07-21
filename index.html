@@ -228,21 +228,21 @@
 
     <script>
         // ------------------ MUSIC TIME CONTROL ------------------
-        const startTime = 70; // ⏱️ ১ মিনিট ১০ সেকেন্ড = ৭০ সেকেন্ড
-        const endTime = 91;   // ⏱️ ১ মিনিট ৩১ সেকেন্ড = ৯১ সেকেন্ড
+        const startTime = 66;  // ⏱️ ১ মিনিট ৬ সেকেন্ড = ৬৬ সেকেন্ড
+        const endTime = 100;   // ⏱️ ১ মিনিট ৪০ সেকেন্ড = ১০০ সেকেন্ড
 
         let musicStarted = false;
         const music = document.getElementById('bgMusic');
 
         document.addEventListener('click', function() {
             if (!musicStarted) {
-                music.currentTime = startTime; // ১:১০ থেকে প্লে শুরু হবে
+                music.currentTime = startTime; // ১:০৬ থেকে প্লে শুরু হবে
                 music.play().catch(e => console.log("Audio play deferred"));
                 musicStarted = true;
             }
         });
 
-        // ১:৩১ এ পৌঁছালে আবার ১:১০ এ ফিরে যাবে (Loop)
+        // ১:৪০ এ পৌঁছালে আবার ১:০৬ এ ফিরে যাবে (Loop)
         music.addEventListener('timeupdate', function() {
             if (this.currentTime >= endTime) {
                 this.currentTime = startTime;
